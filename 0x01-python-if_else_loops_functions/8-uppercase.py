@@ -12,6 +12,6 @@ def uppercase(str):
         if islower(ch):
             ch = ord(ch) - 32
             ch = chr(ch)
-        print(ch, end="")
+        print("{:s}".format(ch), end="")
     else:
         print()
