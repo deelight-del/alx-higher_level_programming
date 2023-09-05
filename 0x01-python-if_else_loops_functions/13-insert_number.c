@@ -34,8 +34,6 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		if (number > track->n && number < track->next->n)
 		{
-			printf("add end");
-			break;
 			next = track->next;
 			track->next = new_node;
 			new_node->next = next;
