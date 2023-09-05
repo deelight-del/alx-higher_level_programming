@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "lists.h"
 
 /**
  * insert_node - Function to insert a node in a sorted linked list
@@ -17,15 +18,15 @@ listint_t *insert_node(listint_t **head, int number)
 	if (new_node == NULL)
 		return (NULL);
 	if ((*head) == NULL || head == NULL)
-		*head = new_node;
+		(*head) = new_node;
 	new_node->n = number;
-	if (number < *head->n)
+	if (number < (*head)->n)
 	{
 		new_node->next = *head;
-		*head = new_node;
+		(*head) = new_node;
 		return (new_node);
 	}
-	track = *head;
+	track = (*head);
 	for (; track->next != NULL;)
 	{
 		if (number > track->n && number < track->next->n)
@@ -40,4 +41,5 @@ listint_t *insert_node(listint_t **head, int number)
 	next = track->next;
 	track->next = new_node;
 	new_node->next = new_node;
+	return (new_node);
 }
