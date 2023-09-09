@@ -72,9 +72,13 @@ int is_palindrome(listint_t **head)
 	for (k = 0; k <= half - 1; k++)
 	{
 		if (array[i] != array[j])
+		{
+			free(array);
 			return (0);
+		}
 		i++;
 		j--;
 	}
+	free(array);
 	return (1);
 }
