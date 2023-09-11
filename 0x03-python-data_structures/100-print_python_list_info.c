@@ -20,10 +20,8 @@ void print_python_list_info(PyObject *p)
 
 	size = PyList_Size(p);
 	printf("[*] Size of the Python List = %lu\n", size);
-	mem_alloc = 6;
-	/*mem_alloc = ((PyListObject *)(p))->allocated;*/
+	mem_alloc = ((PyListObject *)(p))->allocated;
 	printf("[*] Allocated = %lu\n", mem_alloc);
-	mem_alloc = 5;
 	for (i = 0; i < size; i++)
 	{
 		element = PyList_GetItem(p, i);
