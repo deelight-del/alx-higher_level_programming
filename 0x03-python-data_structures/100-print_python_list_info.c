@@ -1,5 +1,5 @@
-#include "Python.h"
-#include <stdio.h>
+#define PY_SSIZE_T_CLEAN
+#include <Python.h>
 
 /**
  * print_python_list_info - Function to print information about python list
@@ -23,6 +23,6 @@ void print_python_list_info(PyObject *p)
 	for (i = 0; i < size; i++)
 	{
 		element = PyList_GetItem(p, i);
-		printf("Element %lu: %s\n", i, element->ob_type->tp_name);
+		printf("Element %lu: %s\n", i, (Py_TYPE(element))->tp_name);
 	}
 }
