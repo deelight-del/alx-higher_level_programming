@@ -1,21 +1,18 @@
 #!/usr/bin/python3
 
-""" Roman to Integer test file
-"""
-roman_to_int = __import__('12-roman_to_int').roman_to_int
+simple_delete = __import__('8-simple_delete').simple_delete
+print_sorted_dictionary = \
+        __import__('6-print_sorted_dictionary').print_sorted_dictionary
 
-roman_number = "XX"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+a_dictionary = { 'language': "C", 'Number': 89, 'track': "Low", 'ids': [1, 2, 3] }
+new_dict = simple_delete(a_dictionary, 'track')
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
 
-roman_number = "VII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "IX"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "LXXXVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "DCCVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
+print("--")
+print("--")
+new_dict = simple_delete(a_dictionary, 'c_is_fun')
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
