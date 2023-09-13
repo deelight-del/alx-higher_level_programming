@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def simple_delete(a_dictionary, key=""):
-    """Function to delete a respective value from a dictionary with 
+    """Function to delete a respective value from a dictionary with
     respective key
 
     Args:
