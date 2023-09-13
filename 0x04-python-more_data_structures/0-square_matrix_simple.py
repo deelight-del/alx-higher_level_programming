@@ -12,6 +12,6 @@ def square_matrix_simple(matrix=[]):
     """
     if isinstance(matrix, list):
         new_matrix = []
-        for l in matrix:
-            new_matrix.append(list(map(lambda x: x*x, l)))
+        for _list in matrix:
+            new_matrix.append(list(map(lambda x: x*x, _list)))
         return new_matrix
