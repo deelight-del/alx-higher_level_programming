@@ -11,17 +11,16 @@ def safe_print_list(my_list=[], x=0):
         An integer that reperesents the number of actual elements printed
     """
 
-    if (x == 0):
-        return(0)
+    if (x <= 0):
+        return (0)
     if isinstance(my_list, list):
         try:
             for i in range(0, x):
                 print(my_list[i], end="")
-        except IndexError:
+            print()
+            return (i + 1)
+        except Exception:
             if i == 0:
                 return(0)
             print()
-            return(i)
-        else:
-            print()
-            return(i + 1)
+            return (i)
