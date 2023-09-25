@@ -12,15 +12,14 @@ def safe_print_list(my_list=[], x=0):
     """
 
     if isinstance(my_list, list):
-        for i in range(0, x):
-            try:
-                print(my_list[i], end="")
-            except IndexError as e:
-                print()
-                if i <= 0:
-                    return 0
-                return (i)
-        print()
-        return (i + 1)
+        count = 0
+        try:
+            for val in my_list:
+                print(val, end="")
+                count = count + 1
+            print()
+        except IndexError as e:
+            print()
+        return (count)
     else:
         return 0
