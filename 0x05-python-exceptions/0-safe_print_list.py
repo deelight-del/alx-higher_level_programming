@@ -14,7 +14,8 @@ def safe_print_list(my_list=[], x=0):
     if isinstance(my_list, list):
         count = 0
         try:
-            for val in my_list:
+            for i in range(0, x):
+                val = my_list[i]
                 print(val, end="")
                 count = count + 1
             print()
