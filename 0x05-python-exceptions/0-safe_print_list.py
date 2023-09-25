@@ -18,9 +18,9 @@ def safe_print_list(my_list=[], x=0):
             print()
             return (i + 1)
         except Exception as e:
+            print()
             if i <= 0:
                 return 0
-            print()
             return i
     else:
         return 0
