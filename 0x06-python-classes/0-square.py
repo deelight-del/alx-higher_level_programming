@@ -5,8 +5,9 @@ Square and its respective attributes
 This is module that will contain the class defintion of the
 Square class for creatting classes.
 """
-class Square:
 
+
+class Square:
     """Square A class that abstracts the data
     square.
 
