@@ -3,11 +3,20 @@
 module = __import__('0-square')
 print(module.__doc__)
 print(module.Square.__doc__)
+print("....")
 
-Square = __import__('0-square').Square
+Square = __import__('1-square').Square
 
-print(".....")
-my_square = Square()
+my_square = Square(3)
 print(type(my_square))
 print(my_square.__dict__)
 
+try:
+        print(my_square.size)
+except Exception as e:
+        print(e)
+
+try:
+    print(my_square.__size)
+except Exception as e:
+    print(e)
