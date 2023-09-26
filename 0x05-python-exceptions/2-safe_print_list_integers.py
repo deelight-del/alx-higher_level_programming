@@ -12,8 +12,6 @@ def safe_print_list_integers(my_list=[], x=0):
     """
 
     if isinstance(my_list, list):
-        if (x <= 0):
-            return (0)
         i = j = 0
         while (j < x):
             try:
