@@ -1,8 +1,17 @@
 #!/usr/bin/python3
+
+"""This module contains implementation
+of the class MagicClass that actually behavies
+like a circle.
+"""
 import math
 
 
 class MagicClass:
+    """This is the class definition of the 
+    MagicClass and its respective properties/behaviour/
+    attribues.
+    """
     def __init__(self, radius=0):
         if type(radius) is not int:
             raise TypeError("radius must be a number")
