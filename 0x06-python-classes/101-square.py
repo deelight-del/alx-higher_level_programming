@@ -113,10 +113,37 @@ class Square:
 
         else:
             for i in range(0, self.__size):
-                for k in range(0, self.__position[0]):
-                    if i == 0 and k == 0 and self.__position[1] != 0:
+                for y in range(0, self.__position[1]):
+                    if i == 0:
                         print()
+                for x in range(0, self.__position[0]):
                     print(" ", end="")
                 for j in range(0, self.__size):
                     print("#", end="")
                 print()
+
+    def __str__(self):
+        """Function for simple print and formatting text 
+        for users.
+
+        Args:
+            self: The object referencing itself
+
+        Return:
+            Nothing.
+        """
+        list_repr = []
+        if self.__size == 0:
+            pass
+        else:
+            for i in range(0, self.__size):
+                for y in range(0, self.__position[1]):
+                    if i == 0:
+                        list_repr.append("\n")
+                for x in range(0, self.__position[0]):
+                    list_repr.append(" ")
+                for j in range(0, self.__size):
+                    list_repr.append("#")
+                if (i != self.__size -1):
+                    list_repr.append("\n")
+        return ("".join(list_repr))
