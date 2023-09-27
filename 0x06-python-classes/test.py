@@ -1,20 +1,13 @@
 #!/usr/bin/python3
 
 
-Square = __import__('102-square').Square
+magic = __import__('103-magic_class').MagicClass
 
-s_5 = Square(5)
-s_6 = Square(6)
+circle = magic(1)
+print(circle.area())
+print(circle.circumference())
 
-if s_5 < s_6:
-    print("Square 5 < Square 6")
-if s_5 <= s_6:
-    print("Square 5 <= Square 6")
-if s_5 == s_6:
-    print("Square 5 == Square 6")
-if s_5 != s_6:
-    print("Square 5 != Square 6")
-if s_5 > s_6:
-    print("Square 5 > Square 6")
-if s_5 >= s_6:
-    print("Square 5 >= Square 6")
+
+circle = magic(7)
+print(circle.area())
+print(circle.circumference())
