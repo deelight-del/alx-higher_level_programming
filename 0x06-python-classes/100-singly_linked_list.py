@@ -44,7 +44,7 @@ class Node:
             Nothhing.
         """
 
-        if not(isinstance(data, int)):
+        if not (isinstance(data, int)):
             raise TypeError("data must be an integer")
         self.__data = data
 
