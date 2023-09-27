@@ -109,7 +109,7 @@ class Square:
             Nothing.
         """
         if self.__size == 0:
-            pass
+            print()
 
         else:
             for i in range(0, self.__size):
