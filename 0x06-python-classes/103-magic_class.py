@@ -8,7 +8,7 @@ import math
 
 
 class MagicClass:
-    """This is the class definition of the 
+    """This is the class definition of the
     MagicClass and its respective properties/behaviour/
     attribues.
     """
