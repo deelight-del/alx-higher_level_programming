@@ -123,7 +123,7 @@ class Square:
                 print()
 
     def __str__(self):
-        """Function for simple print and formatting text 
+        """Function for simple print and formatting text
         for users.
 
         Args:
@@ -144,6 +144,6 @@ class Square:
                     list_repr.append(" ")
                 for j in range(0, self.__size):
                     list_repr.append("#")
-                if (i != self.__size -1):
+                if (i != self.__size - 1):
                     list_repr.append("\n")
         return ("".join(list_repr))
