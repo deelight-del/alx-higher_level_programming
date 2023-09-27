@@ -113,9 +113,10 @@ class Square:
 
         else:
             for i in range(0, self.__size):
-                for k in range(0, self.__position[0]):
-                    if i == 0 and k == 0 and self.__position[1] != 0:
+                for y in range(0, self.__position[1]):
+                    if i == 0:
                         print()
+                for x in range(0, self.__position[0]):
                     print(" ", end="")
                 for j in range(0, self.__size):
                     print("#", end="")
