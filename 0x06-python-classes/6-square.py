@@ -86,8 +86,7 @@ class Square:
 
     def area(self):
         """Function to calculate the area of a square
-        given the size
-
+        giveUUU
         Args:
             self: The instance of this class
 
@@ -111,10 +110,10 @@ class Square:
         else:
             for i in range(0, self.__size):
                 for k in range(0, self.__position[0]):
-                    if self.__position[1] == 0:
-                        print("_", end="")
-                    else:
-                        print(" ", end="")
+                    print(" ", end="")
+                    if (k == self.__position[1] - 1):
+                        print()
                 for j in range(0, self.__size):
                     print("#", end="")
                 print()
+
