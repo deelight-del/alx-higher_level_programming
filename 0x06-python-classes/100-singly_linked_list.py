@@ -94,6 +94,8 @@ class SinglyLinkedList:
                 str_ls.append(temp.data)
                 temp = temp.next_node
             return ('\n'.join(map(str, str_ls)))
+        else:
+            return ""
 
     def sorted_insert(self, value):
         """Function that adds a newnode into the sorted position of the
@@ -112,7 +114,6 @@ class SinglyLinkedList:
                 self.__head = new_node
                 new_node.next_node = temp2
             else:
-
                 track = self.__head
                 while track.next_node:
                     if (value >= track.data and value <= track.next_node.data):
