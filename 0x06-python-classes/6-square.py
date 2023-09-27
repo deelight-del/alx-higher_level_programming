@@ -78,9 +78,9 @@ class Square:
             position: passing position into the setter option.
         """
         if (not (isinstance(position, tuple))) or len(position) != 2:
-            raise TypeError("position must be tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         elif (position[0] < 0 or position[1] < 0):
-            raise TypeError("position must be tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = position
 
