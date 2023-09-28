@@ -1,4 +1,4 @@
-#include <Python.h>
+#include "Python.h"
 #include <string.h>
 
 /**
@@ -8,6 +8,8 @@
  *
  * Return: void.
  */
+
+void print_python_bytes(PyObject *p);
 
 void print_python_list(PyObject *p)
 {
@@ -34,8 +36,8 @@ void print_python_list(PyObject *p)
 		printf("Element %lu: %s\n", i, type);
 		if (strcmp(type, "bytes") == 0)
 			print_python_bytes(item);
-		else if (strcmp(type, "float") == 0)
-			print_python_float(item);
+		/*else if (strcmp(type, "float") == 0)
+			print_python_float(item);*/
 	}
 
 }
@@ -51,7 +53,7 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, print_size, i;
-	char *unicode_str;
+	const char *unicode_str;
 	PyObject *unicode_obj;
 
 	printf("[.] bytes object info\n");
