@@ -81,6 +81,8 @@ class Rectangle:
         function uses to reperesents info to users.
         """
         final_str = ""
+        if (self.__height == 0) or (self.__width == 0):
+            return final_str
         for i in range(self.__height):
             for j in range(self.__width):
                 final_str = final_str + "#"
