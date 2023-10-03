@@ -90,7 +90,10 @@ class Rectangle:
             return final_str
         for i in range(self.__height):
             for j in range(self.__width):
-                final_str = final_str + Rectangle.print_symbol[:]
+                if type(self.print_symbol) is not str:
+                    final_str = final_str + str(self.print_symbol)
+                else:
+                    final_str = final_str + self.print_symbol
             if (i != self.__height - 1):
                 final_str = final_str + "\n"
         return final_str
