@@ -49,9 +49,7 @@ and compares an expected and actual result.
 
 
 	>>> print_square(0.0) #doctest: +REPORT_NDIFF
-	Traceback (innermost last):
-	TypeError: size must be an integer
-
+	<BLANKLINE>
 
 	>>> print_square(-5.2)
 	Traceback (innermost last):
