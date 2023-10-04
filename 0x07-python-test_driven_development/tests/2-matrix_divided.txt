@@ -56,21 +56,24 @@ TypeError: div must be a number
 
 >>> matrix_divide([[200, 400], [500, 600.20]], 0)
 Traceback (most recent call last):
-TypeError: div must be a number
+ZeroDivisionError: division by zero
 
 
 =============================================================================
 :: CHECK FOR FLOAT OVERFLOW
 
 >>> matrix_divide([[float('inf')]], 3) #doctest: +IGNORE_EXCEPTION_DETAIL
-Traceback (most recent call last):
-ValueError: ...
+[[inf]]
 
 >>> matrix_divide([[1, 2]], float('inf')) #doctest: +IGNORE_EXCEPTION_DETAIL
-Traceback (most recent call last):
-ValueError: ...
+[[0.0, 0.0]]
 
 ============================================================
 :: FLOAT DIVIDED BY FLOAT
 >>> matrix_divide([[3.2]], 1.2)
 [[2.67]]
+
+=================================================
+::REGULAR TESTS PASS
+>>> matrix_divide([[360.82, 420.8765], [6.99, 8.03], [0.008, 0.212]], 78)
+[[4.63, 5.4], [0.09, 0.1], [0.0, 0.0]]
