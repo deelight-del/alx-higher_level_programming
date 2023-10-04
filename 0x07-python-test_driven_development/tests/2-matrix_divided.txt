@@ -5,7 +5,13 @@ This txt file contains the test cases from our function matrix_divide.
 Usage: matrix_divide(matrix, div);
 Where matrix is a list of lists, and div is a number
 ========================================================
+::
+import our desired function.
 
+>>> matrix_divide = __import__('2-matrix_divided').matrix_divided
+
+
+=============================================
 ::
 Test to check matrix is always a list of lists
 
@@ -16,15 +22,18 @@ Test to check matrix is always a list of lists
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+
 	list of lists of strings
->>>matrix_divide([["foo", "bar"]], 2)
+>>> matrix_divide([["foo", "bar"]], 2)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+
 	list of list contain empty list in begin and middle
->>>matrix_divide([[], [1, 2, 3]], 4)
+>>> matrix_divide([[], [1, 2, 3]], 4)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
 
 >>> matrix_divide([[1, 2, 3, 4], []], 4)
 Traceback (most recent call last):

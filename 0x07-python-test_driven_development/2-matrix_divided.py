@@ -4,7 +4,7 @@ for the definition of the matrix dvision of by a number
 div"
 """
 
-def matrix_divide(matrix, div):
+def matrix_divided(matrix, div):
     """matrix is a list of lists. It will contain
     only numbers. Otherwise, throws error. This function
     divides the entire matrix with a value, called div.
