@@ -1,0 +1,78 @@
+The txt file that contain different tests from the 
+function `say_my_name` that is found in the say my name
+module.
+
+=================================================================
+
+:: Importing our function `say_my_name`
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+==================================================================
+
+:: Testing if giving only the first parameter works.
+	
+	>>> say_my_name("David")
+	My name is David 
+
+	>>> say_my_name(first_name="David")
+	My name is David 
+
+	>>> say_my_name("")
+	My name is  
+
+
+=======================================================================
+
+:: Testing if both parmaeters work as they should.
+
+	>>> say_my_name("David", "Akingbeni")
+	My name is David Akingbeni
+
+	>>> say_my_name(last_name="Akingbeni", first_name="David")
+	My name is David Akingbeni
+
+
+==========================================================================
+
+:: Given just last_name and no first name
+
+	>>> say_my_name(last_name="David") #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (innermost last):
+	TypeError: function say_my_name missing 1 required argument 'first_name'
+
+===============================================================================
+
+:: Passing in different(int) datatype apart from string into first_name and last_name
+
+	>>> say_my_name(1, "Akingbeni")
+	Traceback (innermost last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name("David", 2)
+	Traceback (innermost last):
+	TypeError: last_name must be a string
+
+
+	>>> say_my_name(1, 2)
+	Traceback (innermost last):
+	TypeError: first_name must be a string
+
+==============================================================================================
+
+:: Passing in Just spaces
+
+	>>> say_my_name("   ", "   ")
+	My name is        
+
+
+============================================================================================
+
+:: Names that inclue special characters
+
+	>>> say_my_name("Sunday\n\n", "   \nDagboru\n") #doctest: +NORMALIZE_WHITESPACE
+	My name is Sunday Dagboru
+
+
+===========================================================================================
