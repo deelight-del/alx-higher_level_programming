@@ -45,3 +45,10 @@ ValueError:...
 For when negative 0
 >>> add_integer(-0)
 98
+
+============================================
+::
+For what happes when NaN IS ENTERED
+>>> add_integer(float('nan')) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (innermost last):
+ValueError: ...

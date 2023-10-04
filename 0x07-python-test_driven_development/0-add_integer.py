@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-"""This module contains the function 
+"""This module contains the function
 definition of the addition of two intgers.
 Where floats are casted to integers.
 """
+
 
 def add_integer(a, b=98):
     """Integer addition of two numbers.
