@@ -1,0 +1,95 @@
+This txt file is used to test the function (print_square)
+that is in the print_square module. It carries out various tests
+and compares an expected and actual result.
+
+================================================================================
+
+:: Importing the actual function from the typical module
+
+	>>> print_square = __import__('4-print_square').print_square
+
+
+=================================================================================
+
+:: Test for various integer sizes from 0 to 10 (Just random about 5 different sizes)
+
+	>>> print_square(0)
+	<BLANKLINE>
+
+	>>> print_square(1)
+	#
+
+	>>> print_square(2)
+	##
+	##
+
+	>>> print_square(5)
+	#####
+	#####
+	#####
+	#####
+	#####
+
+	>>> print_square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+
+========================================================================================
+
+:: When size if float, such as 0.0, 5.0, and other kinds of float.
+
+
+	>>> print_square(0.0) #doctest: +REPORT_NDIFF
+	Traceback (innermost last):
+	TypeError: size must be an integer
+
+
+	>>> print_square(-5.2)
+	Traceback (innermost last):
+	TypeError: size must be an integer
+	
+	>>> print_square(-5.0)
+	Traceback (innermost last):
+	TypeError: size must be an integer
+	
+	>>> print_square(5.0) #doctest: +REPORT_UDIFF
+	Traceback (innermost last):
+	TypeError: size must be an integer
+	
+	>>> print_square(5.2)
+	Traceback (innermost last):
+	TypeError: size must be an integer
+
+====================================================================================
+
+:: Improper datatype, e.g. string.
+
+	>>> print_square("square")
+	Traceback (innermost last):
+	TypeError: size must be an integer
+
+====================================================================================
+
+:: size is an integer but is less than zero.
+
+	>>> print_square(-0)
+	<BLANKLINE>
+
+	>>> print_square(-1)
+	Traceback (innermost last):
+	ValueError: size must be >= 0
+	
+	>>> print_square(-100)
+	Traceback (innermost last):
+	ValueError: size must be >= 0
+
+===========================================================================================
