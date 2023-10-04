@@ -1,0 +1,31 @@
+This txt file contains the test cases from our function matrix_divide.
+====================================================================
+
+::
+Usage: matrix_divide(matrix, div);
+Where matrix is a list of lists, and div is a number
+========================================================
+
+::
+Test to check matrix is always a list of lists
+
+>>> matrix_divide([[1, 2]], 2)
+[[0.5, 1.0]]
+
+>>> matrix_divide([1, 2], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	list of lists of strings
+>>>matrix_divide([["foo", "bar"]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	list of list contain empty list in begin and middle
+>>>matrix_divide([[], [1, 2, 3]], 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divide([[1, 2, 3, 4], []], 4)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
