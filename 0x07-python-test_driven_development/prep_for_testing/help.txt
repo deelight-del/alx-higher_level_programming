@@ -1,0 +1,11 @@
+This involves demonstrating how to use the doctest
+on other kinds of files apart from py files.
+=================================================
+
+>>> from help import my_function
+>>> my_function(2, 3)
+6
+
+Also works for floating point numbers.
+>>> my_function(2.0, 3)
+6.0

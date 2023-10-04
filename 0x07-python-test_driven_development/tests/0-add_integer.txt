@@ -1,0 +1,42 @@
+This is the structure txt file for testing the add_integer functions.
+It contains different tests that the the add_integer will explore.
+================================================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(2)
+100
+
+>>> add_integer(2, 50)
+52
+
+>>> add_integer(20.7, 49)
+69
+
+>>> add_integer("school")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(-2, [1, 2])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(-15.005, -20.67)
+-35
+
+==================
+:: 
+For Large numbers
+
+>>> add_integer(10000, 120000.090)
+130000
+
+>>> add_integer(int('inf')) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ValueError:...
+
+==============================================
+::
+For when negative 0
+>>> add_integer(-0)
+98
