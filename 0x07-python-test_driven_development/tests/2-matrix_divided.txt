@@ -13,7 +13,7 @@ import our desired function.
 
 =============================================
 ::
-Test to check matrix is always a list of lists
+Test to check matrix is always a list of lists of ints
 
 >>> matrix_divide([[1, 2]], 2)
 [[0.5, 1.0]]
@@ -38,3 +38,39 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divide([[1, 2, 3, 4], []], 4)
 Traceback (most recent call last):
 TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divide([[3, "9"], [15, 3]], 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+==========================================================
+:: CHECK TO SEE IF DIV IS NOT INT/FLOAT AND WHEN IT IS EQUATL TO ZERO.
+
+>>> matrix_divide([[100, 200], [301, 420]], 3)
+[[33.33, 66.67], [100.33, 140.0]]
+
+>>> matrix_divide([[200, 400], [500, 600.20]], 'foo')
+Traceback (most recent call last):
+TypeError: div must be a number
+
+
+>>> matrix_divide([[200, 400], [500, 600.20]], 0)
+Traceback (most recent call last):
+TypeError: div must be a number
+
+
+=============================================================================
+:: CHECK FOR FLOAT OVERFLOW
+
+>>> matrix_divide([[float('inf')]], 3) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ValueError: ...
+
+>>> matrix_divide([[1, 2]], float('inf')) #doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ValueError: ...
+
+============================================================
+:: FLOAT DIVIDED BY FLOAT
+>>> matrix_divide([[3.2]], 1.2)
+[[2.67]]
