@@ -1,0 +1,83 @@
+This txt file contains the respective doctest for testing
+the python function `text_indentation(text)` as defined in 
+another module.
+
+======================================================================
+:: Import function from module
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+==================================================================================
+:: Normal use of function. For texts that contain special characters.
+
+	>>> text_indentation("My name is David.I am a boss.Who do you say you are?")
+	My name is David.
+	<BLANKLINE>
+	I am a boss.
+	<BLANKLINE>
+	Who do you say you are?
+	<BLANKLINE>
+	
+	
+	>>> text_indentation("My name is David.I am a boss.Who do you say you are")
+	My name is David.
+	<BLANKLINE>
+	I am a boss.
+	<BLANKLINE>
+	Who do you say you are
+
+
+===================================================================================
+
+:: Empty string.
+
+
+	>>> text_indentation("")
+
+
+=================================================================================
+
+:: Empty Spaces
+
+
+	>>> text_indentation("     ") #doctest: +NORMALIZE_WHITESPACE
+	<BLANKLINE>
+
+=================================================================================
+
+:: Spaces at front and back of text
+
+	>>> text_indentation("     My name is David     ")
+	My name is David
+
+	>>> text_indentation("     My name is David.     ")
+	My name is David.
+	<BLANKLINE>
+
+
+	>>> text_indentation("     My name is David.    And my other name is Oyinkansola     ")
+	My name is David.
+	<BLANKLINE>
+	And my other name is Oyinkansola
+
+
+======================================================================================
+
+:: Testing it on not strings such as integers, lists, and foloats.
+
+
+	>>> text_indentation(1234)
+	Traceback (innermost last):
+	TypeError: text must be a string
+	
+
+	>>> text_indentation(["1234"])
+	Traceback (innermost last):
+	TypeError: text must be a string
+	
+
+	>>> text_indentation(12.34)
+	Traceback (innermost last):
+	TypeError: text must be a string
+
+========================================================================================
