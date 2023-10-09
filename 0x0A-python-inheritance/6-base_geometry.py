@@ -10,7 +10,6 @@ class BaseGeometry:
     object (Python 3.x synatx) and will contain attributes
     and methods to do stuffs.
     """
-    
     def area(self):
         """Raises Exception
 
