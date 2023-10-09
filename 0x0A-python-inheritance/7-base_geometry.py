@@ -6,7 +6,7 @@ methods for certain functionalities.
 
 
 class BaseGeometry:
-    """BaseGeometry is a class that inherits directly from
+    """BaseGeometry is a class that inherits directly
     object (Python 3.x synatx) and will contain attributes
     and methods to do stuffs.
     """
