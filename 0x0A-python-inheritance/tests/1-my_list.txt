@@ -1,0 +1,67 @@
+The txt documentation that tests the behaviour of the class that is defined 
+in the `1-my_list` module.
+
+================================================================================
+
+:: Import MyList class to instantiate MyList objects
+
+	>>> MyList = __import__('1-my_list').MyList
+
+
+================================================================================
+
+:: Sort an empty list.
+
+	>>> my_list = MyList()
+	>>> ret = my_list.print_sorted()
+	[]
+	>>> print(ret)
+	[]
+
+
+==============================================================================
+
+:: Case where the order naturally is high to low (descending order).
+
+	>>> my_list = MyList()
+	>>> my_list.append(10)
+	>>> my_list.append(8)
+	>>> my_list.append(6)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> ret = my_list.print_sorted() #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+	>>> print(ret) #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+
+=========================================================================================
+
+:: Case where the order naturally is low to high (ascending order).
+
+	>>> my_list = MyList()
+	>>> my_list.append(2)
+	>>> my_list.append(4)
+	>>> my_list.append(6)
+	>>> my_list.append(8)
+	>>> my_list.append(10)
+	>>> ret = my_list.print_sorted() #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+	>>> print(ret) #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+
+=========================================================================================
+
+:: Case where the order naturally is disorderly.
+
+	>>> my_list = MyList()
+	>>> my_list.append(8)
+	>>> my_list.append(10)
+	>>> my_list.append(2)
+	>>> my_list.append(6)
+	>>> my_list.append(4)
+	>>> ret = my_list.print_sorted() #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+	>>> print(ret) #doctest: +NORMALIZE_WHITESPACE
+	[2, 4, 6, 8, 10]
+
+=========================================================================================
