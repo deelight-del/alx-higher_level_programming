@@ -65,3 +65,18 @@ in the `1-my_list` module.
 	[2, 4, 6, 8, 10]
 
 =========================================================================================
+
+:: Case where we have negative numbers.
+
+	>>> my_list = MyList()
+	>>> my_list.append(-10)
+	>>> my_list.append(-7)
+	>>> my_list.append(-8)
+	>>> my_list.append(-1)
+	>>> my_list.append(2)
+	>>> ret = my_list.print_sorted() #doctest: +NORMALIZE_WHITESPACE
+	[-10, -8, -7, -1, 2]
+	>>> print(ret) #doctest: +NORMALIZE_WHITESPACE
+	[-10, -8, -7, -1, 2]
+
+=========================================================================================
