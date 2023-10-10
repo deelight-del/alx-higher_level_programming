@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 
 """This module contain function defintions that help return a
 list of lists that reperesents the pascal triangle
