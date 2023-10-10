@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
-#next_triangle = __import__('12-pascal_triangle').next_triangle
-pascal_triangle = __import__('12-pascal_triangle').pascal_triangle
-#print(next_triangle([1, 1]))
-#print(next_triangle([1, 2, 1]))
+Student = __import__('10-student').Student
 
-print(pascal_triangle(1))
-print(pascal_triangle(2))
-print(pascal_triangle(3))
-print(pascal_triangle(4))
-print(pascal_triangle(5))
-print(pascal_triangle(6))
-print(pascal_triangle(7))
+student_1 = Student("John", "Doe", 23)
+student_2 = Student("Bob", "Dylan", 27)
+
+j_student_1 = student_1.to_json()
+j_student_2 = student_2.to_json(['first_name', 'age'])
+j_student_3 = student_2.to_json(['middle_name', 'age'])
+
+print(j_student_1)
+print(j_student_2)
+print(j_student_3)
