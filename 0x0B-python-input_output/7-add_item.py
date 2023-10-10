@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""This module contains the script of the function to save given/
+parsed arguments to the scripts as a list object to a json file.
+"""
 import sys
 from pathlib import Path
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
