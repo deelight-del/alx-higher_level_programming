@@ -62,6 +62,26 @@ BaseGeometry class that is in the 7-base_geometry` module.
 	Traceback (innermost last):
 	TypeError: nan must be an integer
 
+:: Test for tuple datatype
+	>>> bg.integer_validator("tuple", (4,))
+	Traceback (innermost last):
+	TypeError: tuple must be an integer
+
+:: Test for bool.
+	>>> bg.integer_validator("bool", True)
+	Traceback (innermost last):
+	TypeError: bool must be an integer
+
+:: Test for set.
+	>>> bg.integer_validator("set", {8, 7, 6})
+	Traceback (innermost last):
+	TypeError: set must be an integer
+
+:: Test for NaN.
+	>>> bg.integer_validator("none", None)
+	Traceback (innermost last):
+	TypeError: none must be an integer
+
 
 ===============================================================================================
 
@@ -70,5 +90,28 @@ BaseGeometry class that is in the 7-base_geometry` module.
 	>>> bg.integer_validator("good", -1)
 	Traceback (innermost last):
 	ValueError: good must be greater than 0
+	
+	>>> bg.integer_validator("good", 0)
+	Traceback (innermost last):
+	ValueError: good must be greater than 0
 
-============================================================
+==============================================================================================
+
+:: Test for area method
+
+	>>> bg.area()
+	Traceback (innermost last):
+	Exception: area() is not implemented
+
+
+===============================================================================================
+
+:: Test for integer_validator missing a parameter or parameters
+
+	>>> bg.integer_validator() #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (innermost last):
+	TypeError: ...
+	
+	>>> bg.integer_validator("age") #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (innermost last):
+	TypeError: ...
