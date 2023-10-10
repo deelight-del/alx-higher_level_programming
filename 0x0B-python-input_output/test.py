@@ -1,28 +1,14 @@
 #!/usr/bin/python3
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+next_triangle = __import__('12-pascal_triangle').next_triangle
+pascal_triangle = __import__('12-pascal_triangle').pascal_triangle
+print(next_triangle([1, 1]))
+print(next_triangle([1, 2, 1]))
 
-filename = "my_list.json"
-my_list = [1, 2, 3]
-save_to_json_file(my_list, filename)
-
-filename = "my_dict.json"
-my_dict = { 
-            'id': 12,
-                'name': "John",
-                    'places': [ "San Francisco", "Tokyo" ],
-                        'is_active': True,
-                            'info': {
-                                        'age': 36,
-                                                'average': 3.14
-                                                    }
-                            }
-save_to_json_file(my_dict, filename)
-
-try:
-    filename = "my_set.json"
-    my_set = { 132, 3 }
-    save_to_json_file(my_set, filename)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
+print(pascal_triangle(1))
+print(pascal_triangle(2))
+print(pascal_triangle(3))
+print(pascal_triangle(4))
+print(pascal_triangle(5))
+print(pascal_triangle(6))
+print(pascal_triangle(7))
