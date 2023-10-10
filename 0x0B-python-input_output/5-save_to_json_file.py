@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module contains the function defintion of save_to_json_file
 that stores a python object inside a json file as json string.
 """
