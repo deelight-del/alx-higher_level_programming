@@ -14,6 +14,6 @@ class MyList(list):
         """Public method that sorts the given
         list object.
         """
-        self.sort()
-        print(self)
-        return self
+        new_list = sorted(self)
+        print(new_list)
+        return new_list
