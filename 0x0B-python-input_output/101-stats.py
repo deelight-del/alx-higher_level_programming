@@ -27,3 +27,4 @@ if __name__ == "__main__":
         for key in logs:
             if logs[key] > 0:
                 print("{}: {}".format(key, logs[key]))
+        raise
