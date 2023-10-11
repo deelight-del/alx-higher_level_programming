@@ -23,9 +23,9 @@ if __name__ == "__main__":
                 print("File size: {:d}".format(file_size))
                 for key in logs:
                     if logs[key] > 0:
-                        print("{}: {}".format(key, logs[key]))
+                        print("{:d}: {:d}".format(key, logs[key]))
     except (KeyboardInterrupt):
         print("File size: {:d}".format(file_size))
         for key in logs:
             if logs[key] > 0:
-                print("{}: {}".format(key, logs[key]))
+                print("{:d}: {:d}".format(key, logs[key]))
