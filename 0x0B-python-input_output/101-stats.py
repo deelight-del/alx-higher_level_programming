@@ -4,10 +4,8 @@
 certain characteristics
 """
 
-import sys
-
-
 if __name__ == "__main__":
+    import sys
     logs = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0,
             404: 0, 405: 0, 500: 0}
     file_size = 0
@@ -21,7 +19,7 @@ if __name__ == "__main__":
             logs[int(line_list[-2])] += 1
             if epoch % 10 == 0:
                 print("File size: {:d}".format(file_size))
-                for key in logs:
+                for key in sorted(logs.keys()):
                     if logs[key] > 0:
                         print("{:d}: {:d}".format(key, logs[key]))
     except (KeyboardInterrupt):
