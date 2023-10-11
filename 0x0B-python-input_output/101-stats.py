@@ -18,12 +18,12 @@ if __name__ == "__main__":
             file_size += int(line_list[-1])
             logs[int(line_list[-2])] += 1
             if epoch % 10 == 0:
-                print("File size: {:d}".format(file_size))
+                print("File size: {}".format(file_size))
                 for key in sorted(logs.keys()):
                     if logs[key] > 0:
-                        print("{:d}: {:d}".format(key, logs[key]))
+                        print("{}: {}".format(key, logs[key]))
     except (KeyboardInterrupt):
-        print("File size: {:d}".format(file_size))
+        print("File size: {}".format(file_size))
         for key in logs:
             if logs[key] > 0:
-                print("{:d}: {:d}".format(key, logs[key]))
+                print("{}: {}".format(key, logs[key]))
