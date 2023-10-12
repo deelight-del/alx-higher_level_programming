@@ -15,12 +15,12 @@ if __name__ == "__main__":
         for line in sys.stdin:
             epoch = epoch + 1
             line_list = line.split()
-            file_size += int(line_list[-1])
             try:
+                file_size += int(line_list[-1])
                 error_code = int(line_list[-2])
                 if logs.get(error_code, -1) != -1:
                     logs[error_code] += 1
-            except ValueError:
+            except (ValueError, IndexError):
                 pass
             if epoch % 10 == 0:
                 print("File size: {}".format(file_size))
