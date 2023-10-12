@@ -22,6 +22,12 @@ if __name__ == "__main__":
                 for key in sorted(logs.keys()):
                     if logs[key] > 0:
                         print("{}: {}".format(key, logs[key]))
+        else:
+            print("File size: {}".format(file_size))
+            for key in sorted(logs.keys()):
+                if logs[key] > 0:
+                    print("{}: {}".format(key, logs[key]))
+
     except (KeyboardInterrupt):
         print("File size: {}".format(file_size))
         for key in logs:
