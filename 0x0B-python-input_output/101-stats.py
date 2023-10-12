@@ -16,7 +16,12 @@ if __name__ == "__main__":
             epoch = epoch + 1
             line_list = line.split()
             file_size += int(line_list[-1])
-            logs[int(line_list[-2])] += 1
+            try:
+                error_code = int(line_list[-2])
+                if logs.get(error_code, -1) != -1:
+                    logs[error_code] += 1
+            except ValueError:
+                pass
             if epoch % 10 == 0:
                 print("File size: {}".format(file_size))
                 for key in sorted(logs.keys()):
