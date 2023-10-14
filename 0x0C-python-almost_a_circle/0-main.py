@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-""" 0-main """
-from models.base import Base
+
+from models.rectangle import Rectangle
 
 if __name__ == "__main__":
-    b1 = Base()
-    print(b1.id)
+    r1 = Rectangle(10, 10, 10, 10)
+    print(r1)
 
-    b2 = Base()
-    print(b2.id)
+    r1.update(height=1)
+    print(r1)
 
-    b3 = Base()
-    print(b3.id)
+    r1.update(width=1, x=2)
+    print(r1)
 
-    b4 = Base(12)
-    print(b4.id)
+    r1.update(y=1, width=2, x=3, id=89)
+    print(r1)
 
-    b5 = Base()
-    print(b5.id)
+    r1.update(x=1, height=2, y=3, width=4)
+    print(r1)

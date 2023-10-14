@@ -163,3 +163,55 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected_out)
             fake_out.seek(0)
             fake_out.truncate(0)
+
+    def test_update0(self):
+        rectangle = Rectangle(2, 2, 2, 2)
+        with patch("sys.stdout", new=StringIO()) as fake_out:
+            rectangle.update()
+            print(rectangle)
+            expected = "[Rectangle] (1) 2/2 - 2/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle.update(None)
+            print(rectangle)
+            expected = "[Rectangle] (2) 2/2 - 2/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+
+            rectangle.update(67)
+            print(rectangle)
+            expected = "[Rectangle] (67) 2/2 - 2/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle.update(None, 23, 24)
+            print(rectangle)
+            expected = "[Rectangle] (3) 2/2 - 23/24\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle.update(89, 23, 24, 14, 15)
+            print(rectangle)
+            expected = "[Rectangle] (89) 14/15 - 23/24\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle.update(89, 23, 24, 14, 15, 2, 4, 5)
+            print(rectangle)
+            expected = "[Rectangle] (89) 14/15 - 23/24\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+        
+        self.assertRaises(ValueError, rectangle.update, None, 0)
+        self.assertRaises(ValueError, rectangle.update, None, 10, -1)
+        self.assertRaises(ValueError, rectangle.update, None, 10, 1, -1)
+        
+        self.assertRaises(TypeError, rectangle.update, None, [10], 1, -1)
+        self.assertRaises(TypeError, rectangle.update, None, 10, "1", 1)

@@ -99,12 +99,17 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,\
                 self.__y, self.__width, self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """The method that uses no-keyword and keyword
         variable length of ordered and keyed argument to update
         the attributes of a given instance of this class"""
-        lst_args = [self.id, self.width, self.height, self.x, self.y]
+        lst_args = ["id", "width", "height", "x", "y"]
         if args is not None:
             for i, arg in enumerate(args):
                 if i < len(lst_args):
-                    lst_args[i] = arg
+                    setattr(self, lst_args[i], arg)
+        else:
+            if kwargs in not None:
+                for key, val, in kwargs.items():
+                    if key in lst_args:
+                        setattr(self, key, value)
