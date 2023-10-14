@@ -208,6 +208,21 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
+            
+            rectangle.update(id=89, x=14, height=24, y=15, width=23)
+            print(rectangle)
+            expected = "[Rectangle] (89) 14/15 - 23/24\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Rectangle(15, 30)
+            rectangle.update(89, id=89, x=14, height=24, y=15, width=23)
+            print(rectangle)
+            expected = "[Rectangle] (89) 0/0 - 15/30\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
         
         self.assertRaises(ValueError, rectangle.update, None, 0)
         self.assertRaises(ValueError, rectangle.update, None, 10, -1)

@@ -104,12 +104,12 @@ class Rectangle(Base):
         variable length of ordered and keyed argument to update
         the attributes of a given instance of this class"""
         lst_args = ["id", "width", "height", "x", "y"]
-        if args is not None:
+        if len(args) != 0:
             for i, arg in enumerate(args):
                 if i < len(lst_args):
                     setattr(self, lst_args[i], arg)
         else:
-            if kwargs in not None:
+            if kwargs is not None:
                 for key, val, in kwargs.items():
                     if key in lst_args:
-                        setattr(self, key, value)
+                        setattr(self, key, val)
