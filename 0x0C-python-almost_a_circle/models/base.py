@@ -25,8 +25,7 @@ class Base:
         keywords of the dictionary argument"""
         if cls.__name__ == 'Rectangle' or cls.__name__ == 'Square':
             new_object = cls(1, 1)
-            if len(dictionary > 0):
-                new_object.update(**dictionary)
+            new_object.update(**dictionary)
             return new_object
         else:
             cls(**dictionary)
