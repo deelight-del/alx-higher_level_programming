@@ -27,6 +27,8 @@ class Base:
             new_object = cls(1, 1)
             new_object.update(**dictionary)
             return new_object
+        else:
+            cls(**dictionary)
 
     @classmethod
     def load_from_file(cls):
