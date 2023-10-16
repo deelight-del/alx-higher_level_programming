@@ -12,7 +12,7 @@ import json
 
 class TestRectangle(unittest.TestCase):
     """class definition for TestRectangle"""
-    
+
     def setUp(self):
         from models.rectangle import Rectangle
 
@@ -43,11 +43,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle2.height, 2)
         self.assertEqual(rectangle2.x, 3)
         self.assertEqual(rectangle2.y, 4)
-        
+
         rect = Rectangle(1, 2, 0, 0)
         self.assertEqual(rect.x, 0)
         self.assertEqual(rect.y, 0)
-        
+
         with self.assertRaises(TypeError):
             rectangle3 = Rectangle()
         with self.assertRaises(TypeError):
@@ -94,7 +94,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle(float('inf'), 2, 3, (1,))
         with self.assertRaises(TypeError):
             Rectangle(float('nan'), 2, 3, (1,))
-    
+
     def test_AttrValidateValueError(self):
         with self.assertRaises(ValueError):
             Rectangle(0, 1, 2, 3)
@@ -159,7 +159,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected_out)
             fake_out.seek(0)
             fake_out.truncate(0)
-            Rectangle(1, 1, y = 1).display()
+            Rectangle(1, 1, y=1).display()
             expected_out = "\n#\n"
             self.assertEqual(fake_out.getvalue(), expected_out)
             fake_out.seek(0)
@@ -174,7 +174,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle.update(None)
             print(rectangle)
             expected = "[Rectangle] (2) 2/2 - 2/2\n"
@@ -188,35 +188,35 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle.update(None, 23, 24)
             print(rectangle)
             expected = "[Rectangle] (3) 2/2 - 23/24\n"
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle.update(89, 23, 24, 14, 15)
             print(rectangle)
             expected = "[Rectangle] (89) 14/15 - 23/24\n"
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle.update(89, 23, 24, 14, 15, 2, 4, 5)
             print(rectangle)
             expected = "[Rectangle] (89) 14/15 - 23/24\n"
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle.update(id=89, x=14, height=24, y=15, width=23)
             print(rectangle)
             expected = "[Rectangle] (89) 14/15 - 23/24\n"
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-            
+
             rectangle = Rectangle(15, 30)
             rectangle.update(89, id=89, x=14, height=24, y=15, width=23)
             print(rectangle)
@@ -224,11 +224,11 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(fake_out.getvalue(), expected)
             fake_out.seek(0)
             fake_out.truncate(0)
-        
+
         self.assertRaises(ValueError, rectangle.update, None, 0)
         self.assertRaises(ValueError, rectangle.update, None, 10, -1)
         self.assertRaises(ValueError, rectangle.update, None, 10, 1, -1)
-        
+
         self.assertRaises(TypeError, rectangle.update, None, [10], 1, -1)
         self.assertRaises(TypeError, rectangle.update, None, 10, "1", 1)
 
@@ -241,13 +241,12 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         Rectangle.save_to_file([r1, r2])
-        expected_out = [{"y": 8, "x": 2, "id": 1, "width": 10,
-            "height": 7}, {"y": 0, "x": 0, "id": 2,
-                "width": 2, "height": 4}]
+        expected_out = [{"y": 8, "x": 2, "id": 1, "width": 10,"height": 7},
+                {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
         with open('Rectangle.json', 'r') as f:
             actual_out = json.load(f)
         self.assertEqual(actual_out, expected_out)
-        
+
         Rectangle.save_to_file(None)
         expected_out = []
         with open('Rectangle.json', 'r') as f:

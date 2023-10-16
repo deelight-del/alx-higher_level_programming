@@ -117,6 +117,8 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Public method to convert a given object to the dictionary
         representation of that object with its various attributes"""
-        self.__attrdict = {"id": self.id, "width": self.width,
-                        "height": self.height, "x": self.x, "y": self.y}
+        self.__attrdict = {
+                            "id": self.id, "width": self.width,
+                            "height": self.height, "x": self.x, "y": self.y
+                            }
         return self.__attrdict
