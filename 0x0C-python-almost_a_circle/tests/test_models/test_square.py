@@ -7,6 +7,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.square import Square
 import sys
+import json
 
 
 class TestSquare(unittest.TestCase):
@@ -319,3 +320,19 @@ class TestSquare(unittest.TestCase):
         square = Square(10, 20, 30)
         self.assertDictEqual(square.to_dictionary(),
                 {'id': 1, 'size': 10, 'x': 20, 'y': 30})
+    
+    def test_save_to_file(self):
+        s1 = Square(7, 2, 8, 89)
+        s2 = Square(2)
+        Square.save_to_file([s1, s2])
+        expected_out = [{"y": 8, "x": 2, "id": 89, "size": 7}, 
+                {"y": 0, "x": 0, "id": 1, "size": 2}]
+        with open('Square.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)
+        
+        Square.save_to_file(None)
+        expected_out = []
+        with open('Square.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)

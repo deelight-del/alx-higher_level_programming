@@ -19,7 +19,7 @@ class Square(Rectangle):
         """The __str__ magic method that is used to print the class
         instances"""
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-            self.width))
+                self.width))
 
     @property
     def size(self):
@@ -35,7 +35,7 @@ class Square(Rectangle):
             raise ValueError("width must be > 0")
         else:
             self.width = self.height = size
-    
+
     def update(self, *args, **kwargs):
         """The method that uses no-keyword and keyword
         variable length of ordered and keyed argument to update
@@ -55,5 +55,5 @@ class Square(Rectangle):
         """Public method to convert a given object to the dictionary
         representation of that object with its various attributes"""
         self.__attrdict = {"id": self.id, "size": self.size,
-                "x": self.x, "y": self.y}
+                        "x": self.x, "y": self.y}
         return self.__attrdict

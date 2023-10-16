@@ -7,6 +7,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
 import sys
+import json
 
 
 class TestRectangle(unittest.TestCase):
@@ -235,3 +236,20 @@ class TestRectangle(unittest.TestCase):
         rectangle = Rectangle(10, 20, 30, 40)
         self.assertDictEqual(rectangle.to_dictionary(),
                 {'id': 1, 'height': 20, 'width': 10, 'x': 30, 'y': 40})
+
+    def test_save_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        expected_out = [{"y": 8, "x": 2, "id": 1, "width": 10,
+            "height": 7}, {"y": 0, "x": 0, "id": 2,
+                "width": 2, "height": 4}]
+        with open('Rectangle.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)
+        
+        Rectangle.save_to_file(None)
+        expected_out = []
+        with open('Rectangle.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)
