@@ -22,3 +22,12 @@ class TestBaseInit(unittest.TestCase):
 
         base4 = Base()
         self.assertEqual(base4.id, 3)
+
+    def test_to_json_string(self):
+        l_d = Base.to_json_string(['a', 'b', {'c': True}])
+        self.assertEqual(l_d, '["a", "b", {"c": true}]')
+        base = Base()
+        l_d1 = base.to_json_string(['a', 'b', {'c': True}])
+        self.assertEqual(l_d1, '["a", "b", {"c": true}]')
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string(None), "[]")

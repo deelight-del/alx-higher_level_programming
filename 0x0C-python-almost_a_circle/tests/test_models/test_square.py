@@ -245,69 +245,77 @@ class TestSquare(unittest.TestCase):
             fake_out.seek(0)
             fake_out.truncate(0)
 
-#    def test_update(self):
-#        square = Square(2, 2, 2, 2)
-#        with patch("sys.stdout", new=StringIO()) as fake_out:
-#            square.update()
-#            print(square)
-#            expected = "[Square] (1) 2/2 - 2/2\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square.update(None)
-#            print(square)
-#            expected = "[Square] (2) 2/2 - 2/2\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#
-#            square.update(67)
-#            print(square)
-#            expected = "[Square] (67) 2/2 - 2/2\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square.update(None, 23, 24)
-#            print(square)
-#            expected = "[Square] (3) 2/2 - 23/24\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square.update(89, 23, 24, 14, 15)
-#            print(square)
-#            expected = "[Square] (89) 14/15 - 23/24\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square.update(89, 23, 24, 14, 15, 2, 4, 5)
-#            print(square)
-#            expected = "[Square] (89) 14/15 - 23/24\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square.update(id=89, x=14, height=24, y=15, width=23)
-#            print(square)
-#            expected = "[Square] (89) 14/15 - 23/24\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#            
-#            square = Square(15, 30)
-#            square.update(89, id=89, x=14, height=24, y=15, width=23)
-#            print(square)
-#            expected = "[Square] (89) 0/0 - 15/30\n"
-#            self.assertEqual(fake_out.getvalue(), expected)
-#            fake_out.seek(0)
-#            fake_out.truncate(0)
-#        
-#        self.assertRaises(ValueError, square.update, None, 0)
-#        self.assertRaises(ValueError, square.update, None, 10, -1)
-#        self.assertRaises(ValueError, square.update, None, 10, 1, -1)
-#        
-#        self.assertRaises(TypeError, square.update, None, [10], 1, -1)
-#        self.assertRaises(TypeError, square.update, None, 10, "1", 1)
+    def test_update(self):
+        square = Square(1, 2, 3)
+        with patch("sys.stdout", new=StringIO()) as fake_out:
+            square.update()
+            print(square)
+            expected = "[Square] (1) 2/3 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square.update(None)
+            print(square)
+            expected = "[Square] (2) 2/3 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+
+            square.update(67)
+            print(square)
+            expected = "[Square] (67) 2/3 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square.update(None, 23)
+            print(square)
+            expected = "[Square] (3) 2/3 - 23\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square.update(89, 23, 24, 14)
+            print(square)
+            expected = "[Square] (89) 24/14 - 23\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square.update(89, 23, 24, 14, 15, 2, 4, 5)
+            print(square)
+            expected = "[Square] (89) 24/14 - 23\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square.update(id=89, x=14, size=24, y=15)
+            print(square)
+            expected = "[Square] (89) 14/15 - 24\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            square = Square(15)
+            square.update(89, id=89, x=14, height=24, y=15, width=23)
+            print(square)
+            expected = "[Square] (89) 0/0 - 15\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+        
+        self.assertRaises(ValueError, square.update, None, 0)
+        self.assertRaises(ValueError, square.update, None, 10, -1)
+        self.assertRaises(ValueError, square.update, None, 10, 1, -1)
+        self.assertRaises(ValueError, square.update, id = None, size = 0)
+        self.assertRaises(ValueError, square.update, id = None, size = 10, x = -1)
+        self.assertRaises(ValueError, square.update, id = None, size = 10, x = 1, y = -1)
+        
+        self.assertRaises(TypeError, square.update, None, [10], 1, -1)
+        self.assertRaises(TypeError, square.update, None, 10, "1", 1)
+
+    def test_dictionary(self):
+        square = Square(10, 20, 30)
+        self.assertDictEqual(square.to_dictionary(),
+                {'id': 1, 'size': 10, 'x': 20, 'y': 30})

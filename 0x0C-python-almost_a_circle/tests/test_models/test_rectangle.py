@@ -230,3 +230,8 @@ class TestRectangle(unittest.TestCase):
         
         self.assertRaises(TypeError, rectangle.update, None, [10], 1, -1)
         self.assertRaises(TypeError, rectangle.update, None, 10, "1", 1)
+
+    def test_dictionary(self):
+        rectangle = Rectangle(10, 20, 30, 40)
+        self.assertDictEqual(rectangle.to_dictionary(),
+                {'id': 1, 'height': 20, 'width': 10, 'x': 30, 'y': 40})

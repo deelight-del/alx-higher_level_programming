@@ -35,3 +35,25 @@ class Square(Rectangle):
             raise ValueError("width must be > 0")
         else:
             self.width = self.height = size
+    
+    def update(self, *args, **kwargs):
+        """The method that uses no-keyword and keyword
+        variable length of ordered and keyed argument to update
+        the attributes of a given instance of this class"""
+        lst_args = ["id", "size", "x", "y"]
+        if len(args) != 0:
+            for i, arg in enumerate(args):
+                if i < len(lst_args):
+                    setattr(self, lst_args[i], arg)
+        else:
+            if len(kwargs) > 0:
+                for key, val, in kwargs.items():
+                    if key in lst_args:
+                        setattr(self, key, val)
+
+    def to_dictionary(self):
+        """Public method to convert a given object to the dictionary
+        representation of that object with its various attributes"""
+        self.__attrdict = {"id": self.id, "size": self.size,
+                "x": self.x, "y": self.y}
+        return self.__attrdict
