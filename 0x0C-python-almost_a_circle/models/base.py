@@ -24,8 +24,12 @@ class Base:
     def create(cls, **dictionary):
         """class method that creates a new instance from the
         keywords of the dictionary argument"""
-        if cls.__name__ == 'Rectangle' or cls.__name__ == 'Square':
+        if cls.__name__ == 'Rectangle':
             new_object = cls(1, 1)
+            new_object.update(**dictionary)
+            return new_object
+        if cls.__name__ == 'Square':
+            new_object = cls(1)
             new_object.update(**dictionary)
             return new_object
         else:
