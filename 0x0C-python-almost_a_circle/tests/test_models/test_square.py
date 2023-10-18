@@ -184,6 +184,8 @@ class TestSquare(unittest.TestCase):
             square1.size = -1
 
         with self.assertRaises(ValueError):
+            Square(1, -2)
+        with self.assertRaises(ValueError):
             Square(1, 2, -1, 3)
         with self.assertRaises(ValueError):
             Square(1, 2, -100, 3)
@@ -336,3 +338,33 @@ class TestSquare(unittest.TestCase):
         with open('Square.json', 'r') as f:
             actual_out = json.load(f)
         self.assertEqual(actual_out, expected_out)
+    
+    def test_create(self):
+        with patch("sys.stdout", new=StringIO()) as fake_out:
+            rectangle = Square.create(**{ 'id': 89 })
+            print(rectangle)
+            expected = "[Square] (89) 0/0 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Square.create(**{'id': 89, 'size': 1})
+            print(rectangle)
+            expected = "[Square] (89) 0/0 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+
+            rectangle = Square.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+            print(rectangle)
+            expected = "[Square] (89) 2/0 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Square.create(**{'id': 89, 'size': 1, 'x': 2, 'y': 3})
+            print(rectangle)
+            expected = "[Square] (89) 2/3 - 1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)

@@ -252,3 +252,40 @@ class TestRectangle(unittest.TestCase):
         with open('Rectangle.json', 'r') as f:
             actual_out = json.load(f)
         self.assertEqual(actual_out, expected_out)
+
+    def test_create(self):
+        with patch("sys.stdout", new=StringIO()) as fake_out:
+            rectangle = Rectangle.create(**{ 'id': 89 })
+            print(rectangle)
+            expected = "[Rectangle] (89) 0/0 - 1/1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Rectangle.create(**{'id': 89, 'width': 1})
+            print(rectangle)
+            expected = "[Rectangle] (89) 0/0 - 1/1\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+
+            rectangle = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+            print(rectangle)
+            expected = "[Rectangle] (89) 0/0 - 1/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+            print(rectangle)
+            expected = "[Rectangle] (89) 3/0 - 1/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)
+            
+            rectangle = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+            print(rectangle)
+            expected = "[Rectangle] (89) 3/4 - 1/2\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            fake_out.seek(0)
+            fake_out.truncate(0)

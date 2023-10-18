@@ -31,3 +31,11 @@ class TestBaseInit(unittest.TestCase):
         self.assertEqual(l_d1, '["a", "b", {"c": true}]')
         self.assertEqual(Base.to_json_string([]), "[]")
         self.assertEqual(Base.to_json_string(None), "[]")
+
+    def test_from_json_string(self):
+        listOfDict = Base.from_json_string(None)
+        self.assertEqual(listOfDict, [])
+        listOfDict = Base.from_json_string('[]')
+        self.assertEqual(listOfDict, [])
+        listOfDict = Base.from_json_string('[{ "id": 89 }]')
+        self.assertEqual(listOfDict, [{'id': 89}])
