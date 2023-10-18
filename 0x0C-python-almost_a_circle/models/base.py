@@ -115,16 +115,16 @@ class Base:
                         continue
                     attrsdict = dict()
                     if cls.__name__ == "Rectangle":
-                        attrsdict["id"] = eval(row[0])
-                        attrsdict["width"] = eval(row[1])
-                        attrsdict["height"] = eval(row[2])
-                        attrsdict["x"] = eval(row[3])
-                        attrsdict["y"] = eval(row[4])
+                        attrsdict["id"] = int(row[0])
+                        attrsdict["width"] = int(row[1])
+                        attrsdict["height"] = int(row[2])
+                        attrsdict["x"] = int(row[3])
+                        attrsdict["y"] = int(row[4])
                     elif cls.__name__ == "Square":
-                        attrsdict["id"] = eval(row[0])
-                        attrsdict["size"] = eval(row[1])
-                        attrsdict["x"] = eval(row[2])
-                        attrsdict["y"] = eval(row[3])
+                        attrsdict["id"] = int(row[0])
+                        attrsdict["size"] = int(row[1])
+                        attrsdict["x"] = int(row[2])
+                        attrsdict["y"] = int(row[3])
                     list_of_attrsdict.append(attrsdict)
             list_of_instances = []
             if len(list_of_attrsdict) != 0:
