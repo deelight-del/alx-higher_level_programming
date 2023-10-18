@@ -252,6 +252,27 @@ class TestRectangle(unittest.TestCase):
         with open('Rectangle.json', 'r') as f:
             actual_out = json.load(f)
         self.assertEqual(actual_out, expected_out)
+        
+        Rectangle.save_to_file([])
+        expected_out = []
+        with open('Rectangle.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)
+
+    def test_load_from_file(self):
+        with open("Rectangle.json", 'w') as f:
+            f.seek(0)
+            f.truncate(0)
+
+        listOfInstances = Rectangle.load_from_file()
+        self.assertEqual(listOfInstances, [])
+
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r2 = Rectangle(7, 8, 9, 10, 11)
+        Rectangle.save_to_file([r1, r2])
+        listOfInstances = Rectangle.load_from_file()
+        self.assertEqual(r1.__str__(), listOfInstances[0].__str__())
+        self.assertEqual(r2.__str__(), listOfInstances[1].__str__())
 
     def test_create(self):
         with patch("sys.stdout", new=StringIO()) as fake_out:

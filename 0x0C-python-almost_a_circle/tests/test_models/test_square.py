@@ -338,6 +338,27 @@ class TestSquare(unittest.TestCase):
         with open('Square.json', 'r') as f:
             actual_out = json.load(f)
         self.assertEqual(actual_out, expected_out)
+        
+        Square.save_to_file([])
+        expected_out = []
+        with open('Square.json', 'r') as f:
+            actual_out = json.load(f)
+        self.assertEqual(actual_out, expected_out)
+    
+    def test_load_from_file(self):
+        with open("Square.json", 'w') as f:
+            f.seek(0)
+            f.truncate(0)
+
+        listOfInstances = Square.load_from_file()
+        self.assertEqual(listOfInstances, [])
+
+        s1 = Square(1, 2, 3, 4)
+        s2 = Square(7, 8, 9, 10)
+        Square.save_to_file([s1, s2])
+        listOfInstances = Square.load_from_file()
+        self.assertEqual(s1.__str__(), listOfInstances[0].__str__())
+        self.assertEqual(s2.__str__(), listOfInstances[1].__str__())
     
     def test_create(self):
         with patch("sys.stdout", new=StringIO()) as fake_out:
