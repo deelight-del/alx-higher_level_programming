@@ -6,6 +6,7 @@ from.
 
 
 import json
+import csv
 
 
 class Base:
@@ -79,6 +80,57 @@ class Base:
                 for obj in list_objs:
                     list_of_dicts.append(obj.to_dictionary())
                 f.write(cls.to_json_string(list_of_dicts))
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """The class method to save a list_objs attributes to a csv file
+        that is specified by the class name"""
+        with open(cls.__name__ + ".csv", mode="w") as f:
+            if list_objs is None or len(list_objs) == 0:
+                f.write("")
+            else:
+                csv_writer = csv.writer(f)
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        csv_writer.writerow([obj.id, obj.width, obj.height,
+                                            obj.x, obj.y])
+                    elif cls.__name__ == "Square":
+                        csv_writer.writerow([obj.id, obj.size,
+                                            obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """The class method to return list of instances that
+        are created from a csv files corresponding to the class"""
+        try:
+            with open(cls.__name__ + ".csv", mode="r") as f:
+                list_of_attrsdict = []
+                csv_reader = csv.reader(f)
+                for row in csv_reader:
+                    if row == "[]":
+                        continue
+                    attrsdict = dict()
+                    if cls.__name__ == "Rectangle":
+                        attrsdict["id"] = eval(row[0])
+                        attrsdict["width"] = eval(row[1])
+                        attrsdict["height"] = eval(row[2])
+                        attrsdict["x"] = eval(row[3])
+                        attrsdict["y"] = eval(row[4])
+                    elif cls.__name__ == "Square":
+                        attrsdict["id"] = eval(row[0])
+                        attrsdict["size"] = eval(row[1])
+                        attrsdict["x"] = eval(row[2])
+                        attrsdict["y"] = eval(row[3])
+                    list_of_attrsdict.append(attrsdict)
+            list_of_instances = []
+            if len(list_of_attrsdict) != 0:
+                for attrsdict in list_of_attrsdict:
+                    list_of_instances.append(cls.create(**attrsdict))
+                return list_of_instances
+            else:
+                return []
+        except IOError:
+            return []
 
     def __init__(self, id=None):
         """Init definition of class"""
