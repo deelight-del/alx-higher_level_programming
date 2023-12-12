@@ -12,7 +12,7 @@ function isNumber (number) {
 if (isNumber(argvTwo)) {
   const loopTimes = Number(argvTwo);
   for (let i = 0; i < loopTimes; i++) {
-    let repeatedStr = 'X'.repeat(loopTimes);
+    const repeatedStr = 'X'.repeat(loopTimes);
     console.log(repeatedStr);
   }
 } else {
