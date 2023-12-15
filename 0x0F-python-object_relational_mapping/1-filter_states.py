@@ -13,7 +13,7 @@ if __name__ == '__main__':
         user=username, passwd=password, charset="utf8"
         )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%'")
+    cur.execute("SELECT * FROM states WHERE name LIKE '{}%'".format("N"))
     rows = cur.fetchall()
     for row in rows:
         print(row)
