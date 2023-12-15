@@ -15,8 +15,8 @@ if __name__ == '__main__':
         )
     cur = conn.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name = '{}'\
-        ORDER BY id ASC".format(search_name)
+        "SELECT * FROM states WHERE name = %s\
+        ORDER BY id ASC", (search_name,)
         )
     query_rows = cur.fetchall()
     for row in query_rows:
