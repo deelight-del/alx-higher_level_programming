@@ -3,8 +3,8 @@
     to intereact with some databases as we prefer them. We will
     first begin with creating a Class"""
 
-from SQLAlchemy import Column, Table, Integer, String
-from SQLAlchemy.ext.declarative import declarative_base()
+from sqlalchemy import Column, Table, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
