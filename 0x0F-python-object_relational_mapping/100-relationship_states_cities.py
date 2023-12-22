@@ -17,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(engine)
     session = Session()
     new_state = State(name="California")
-    san_fran = session.query(City).filter(City.name == "San Francisco").one()
+    san_fran = City(name="San Francisco")
     new_state.cities.append(san_fran)
     session.add(new_state)
     session.commit()
