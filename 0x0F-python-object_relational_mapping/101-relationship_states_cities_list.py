@@ -24,4 +24,3 @@ if __name__ == "__main__":
         cities = eachState.cities
         for eachCity in cities:
             print("\t{}".format(eachCity.id) + ": " + eachCity.name)
-
