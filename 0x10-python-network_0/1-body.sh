@@ -1,3 +1,3 @@
 #!/bin/bash
 # curl to send in a get request and print the body of respons
-curl -G ${1}
+curl -G -s ${1}
