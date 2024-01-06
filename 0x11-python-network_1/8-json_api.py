@@ -33,4 +33,4 @@ if __name__ == "__main__":
         if int(respons.status_code) == 204:
             print("No result")
         else:
-            print("Not a valid json")
+            print("Not a valid JSON")
