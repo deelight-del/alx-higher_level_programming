@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This contains listing the commits
+of rails repo by rails user"""
 
 
 if __name__ == "__main__":
