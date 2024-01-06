@@ -11,10 +11,10 @@ if __name__ == "__main__":
     token = sys.argv[2]
     header_dictionary = {
             "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {token}",
-            "X-GitHub-Api-Version": "2022-11-28"
+            "Authorization": f"token {token}",
+            "X-GitHub-Api-Version": "2022-11-28",
             }
-    user_url = f"https://api.github.com/{username}"
+    user_url = f"https://api.github.com/users/{username}"
     response = requests.get(user_url, headers=header_dictionary)
     json_result = response.json()
     print(json_result.get('id'))
