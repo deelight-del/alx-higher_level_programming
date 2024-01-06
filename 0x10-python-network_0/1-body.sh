@@ -1,3 +1,7 @@
 #!/bin/bash
 # curl to send in a get request and print the body of respons
-curl -G -s ${1}
+response=$(curl -G -s -w "%{http_code}" -o /dev/null "$1")
+#echo "$response"
+if [ "$response" = "200" ]; then
+	curl -G -s "$1";
+fi
