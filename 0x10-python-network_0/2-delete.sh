@@ -1,3 +1,3 @@
 #!/bin/bash
 # curl to send in a get request and print the body of respons
-curl -G -f -s "$1";
+curl -f -s -X "DELETE" "$1";
