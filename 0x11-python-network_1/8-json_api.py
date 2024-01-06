@@ -27,8 +27,8 @@ if __name__ == "__main__":
                     )
             print(result)
     except (
+            requests.exceptions.JSONDecodeError,
             requests.exceptions.HTTPError,
-            Exception
             ):
         if int(respons.status_code) == 204:
             print("No result")
