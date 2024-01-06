@@ -16,7 +16,7 @@ if __name__ == "__main__":
         payload['q'] = ""
     response = requests.post(url, data=payload)
     try:
-        response.raise_for_status()
+        # response.raise_for_status()
         json_format_data = response.json()
         if not json_format_data:
             print("No result")
@@ -28,7 +28,7 @@ if __name__ == "__main__":
             print(result)
     except (
             requests.exceptions.JSONDecodeError,
-            requests.exceptions.HTTPError,
+            # requests.exceptions.HTTPError,
             ):
         if int(respons.status_code) == 204:
             print("No result")
