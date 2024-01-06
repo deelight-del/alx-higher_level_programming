@@ -17,7 +17,7 @@ if __name__ == "__main__":
     response = requests.get(url, headers)
     try:
         json_data = response.json()
-        for eachCommit in json_data[-1:-11:-1]:
+        for eachCommit in json_data[0:10]:
             print(
                     eachCommit.get("commit").get("tree").get("sha") + ": " +
                     eachCommit.get("commit").get("committer").get("name")
