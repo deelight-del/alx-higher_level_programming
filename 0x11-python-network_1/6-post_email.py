@@ -6,9 +6,5 @@ and then prints the information returned using the text attr"""
 if __name__ == "__main__":
     import requests
     import sys
-
-    url = sys.argv[1]
-    mail = sys.argv[2]
-    payload = {"email": mail}
-    req = requests.post(url, data={'email': mail})
+    req = requests.post(sys.argv[1], data={'email': sys.argv[2])
     print(req.text)
