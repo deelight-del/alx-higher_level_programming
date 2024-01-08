@@ -26,10 +26,7 @@ if __name__ == "__main__":
                     json_format_data['name']
                     )
             print(result)
-    except (
-            requests.exceptions.HTTPError,
-            Exception
-            ):
+    except Exception:
         if int(respons.status_code) == 204:
             print("No result")
         else:
