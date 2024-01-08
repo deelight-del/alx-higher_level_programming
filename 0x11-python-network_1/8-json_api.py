@@ -5,7 +5,7 @@ with the letter as a parameter."""
 
 
 if __name__ == "__main__":
-    import requests
+    import requests, json
     import sys
 
     url = "http://0.0.0.0:5000/search_user"
@@ -26,8 +26,5 @@ if __name__ == "__main__":
                     json_format_data['name']
                     )
             print(result)
-    except Exception:
-        if int(respons.status_code) == 204:
-            print("No result")
-        else:
-            print("Not a valid JSON")
+    except (json.decoder.JSONDecodeError):
+        print("Not a valid JSON")
