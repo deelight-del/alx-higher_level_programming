@@ -5,7 +5,8 @@ with the letter as a parameter."""
 
 
 if __name__ == "__main__":
-    import requests, json
+    import requests
+    import json
     import sys
 
     url = "http://0.0.0.0:5000/search_user"
